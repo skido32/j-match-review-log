@@ -1,16 +1,25 @@
 "use client";
 import { FC, useState } from "react";
+import {
+  StyledTitleDiv,
+  StyledHambugerDiv,
+  StyledHeaderDiv,
+  StyledSlideMenuUl,
+  StyleAnkerTag,
+  StyledImage,
+} from "./style";
 
 export const Header: FC = () => {
   const [active, setActive] = useState(false);
   return (
     <header>
-      <div>
-        <div>
-          <img src="/soccer_ball_icon.png" width="26" height="26" />
+      <StyledHeaderDiv>
+        <StyledTitleDiv>
+          <StyledImage src="/soccer_ball_icon.png" width="26" height="26" />
           <span>J Match Review Log</span>
-        </div>
-        <div
+        </StyledTitleDiv>
+        <StyledHambugerDiv
+          $isActive={active}
           onClick={() => {
             setActive(!active);
           }}
@@ -18,22 +27,22 @@ export const Header: FC = () => {
           <span></span>
           <span></span>
           <span></span>
-        </div>
-      </div>
-      <ul>
+        </StyledHambugerDiv>
+      </StyledHeaderDiv>
+      <StyledSlideMenuUl $isActive={active}>
         <li>
-          <a href="/">TOP</a>
+          <StyleAnkerTag href="/">TOP</StyleAnkerTag>
         </li>
         <li>
-          <a href="/categories/j1">J1</a>
+          <StyleAnkerTag href="/categories/j1">J1</StyleAnkerTag>
         </li>
         <li>
-          <a href="/categories/j2">J2</a>
+          <StyleAnkerTag href="/categories/j2">J2</StyleAnkerTag>
         </li>
         <li>
-          <a href="/categories/j3">J3</a>
+          <StyleAnkerTag href="/categories/j3">J3</StyleAnkerTag>
         </li>
-      </ul>
+      </StyledSlideMenuUl>
     </header>
   );
 };
