@@ -2,6 +2,15 @@ import { FC } from "react";
 import { TeamsData } from "./types";
 import { Header } from "components/shared/header/index";
 import { Footer } from "components/shared/footer/index";
+import {
+  StyledTeamsList,
+  StyledTeamsListItem,
+  StyledWrapperDiv,
+  StyledContentTitleDiv,
+  StyledContentSubTitleDiv,
+  StyledContentSubTitleP,
+  StyledContentTitleP,
+} from "./style";
 import { LinkButton } from "components/shared/link_button/index";
 
 type Props = {
@@ -14,31 +23,31 @@ export const TeamsPresenter: FC<Props> = ({ loading, teamsData }) => {
   return (
     <>
       <Header />
-      <div>
-        <div>
-          <p>Search Result</p>
-        </div>
-        <div>
-          <p>「J1」</p>
-        </div>
+      <StyledWrapperDiv>
+        <StyledContentSubTitleDiv>
+          <StyledContentSubTitleP>Search Result</StyledContentSubTitleP>
+        </StyledContentSubTitleDiv>
+        <StyledContentTitleDiv>
+          <StyledContentTitleP>「J1」</StyledContentTitleP>
+        </StyledContentTitleDiv>
         {loading ? (
           <div>読み込み中</div>
         ) : (
-          <ul>
+          <StyledTeamsList>
             {teams.map((team, i) => {
               return (
-                <li>
+                <StyledTeamsListItem>
                   <LinkButton
                     labelText={team.name}
                     url="/categories/j1"
                     colorCode="#F71515"
                   />
-                </li>
+                </StyledTeamsListItem>
               );
             })}
-          </ul>
+          </StyledTeamsList>
         )}
-      </div>
+      </StyledWrapperDiv>
       <Footer />
     </>
   );
