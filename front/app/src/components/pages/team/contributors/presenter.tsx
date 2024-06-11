@@ -1,5 +1,18 @@
 import { FC } from "react";
 import { TeamData } from "../types";
+import {
+  StyledReviwerNameStrong,
+  StyledMediaList,
+  StyledMediaListItem,
+  StyledReviwerNameDiv,
+  StyledMediaTitleDiv,
+  StyledArticleTitleDiv,
+  StyledDiv,
+  StyledImage,
+  StyledArticleImageDiv,
+  StyledBorderDiv,
+  StyledBorderWrapperDiv,
+} from "./style";
 
 type Props = {
   contributors: TeamData["contributors"];
@@ -7,34 +20,36 @@ type Props = {
 
 export const Contributors: FC<Props> = ({ contributors }) => {
   return (
-    <ul>
+    <StyledMediaList>
       {contributors.map((contributor, i) => {
         return (
-          <li>
+          <StyledMediaListItem>
             <div>
-              <div>
-                <div />
-              </div>
-              <div>
-                <strong>{contributor.name}</strong>
-              </div>
-              <div>
+              <StyledBorderWrapperDiv>
+                <StyledBorderDiv />
+              </StyledBorderWrapperDiv>
+              <StyledReviwerNameDiv>
+                <StyledReviwerNameStrong>
+                  {contributor.name}
+                </StyledReviwerNameStrong>
+              </StyledReviwerNameDiv>
+              <StyledMediaTitleDiv>
                 <p>{contributor.media_title}</p>
-              </div>
-              <div>
+              </StyledMediaTitleDiv>
+              <StyledDiv>
                 <p>New Article</p>
-              </div>
+              </StyledDiv>
               {/* TODO:最新記事へのリンクをプレビュー表示するまで、とりあえず仮画像を表示 */}
-              <div>
-                <img src="/soccer_ball.jpeg" />
-              </div>
-              <div>
+              <StyledArticleImageDiv>
+                <StyledImage src="/soccer_ball.jpeg" />
+              </StyledArticleImageDiv>
+              <StyledArticleTitleDiv>
                 <p>{contributor.new_article_title}</p>
-              </div>
+              </StyledArticleTitleDiv>
             </div>
-          </li>
+          </StyledMediaListItem>
         );
       })}
-    </ul>
+    </StyledMediaList>
   );
 };
