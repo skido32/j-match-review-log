@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Lottie from "react-lottie";
 import animationData from "./jlog.json";
+import { StyledLoadingDiv, StyledAnimationDiv } from "./style";
 
 export const LoadingAnimation: FC = () => {
   const defaultOptions = {
@@ -13,10 +14,10 @@ export const LoadingAnimation: FC = () => {
   };
 
   return (
-    <div>
-      <div>
+    <StyledLoadingDiv>
+      <StyledAnimationDiv>
         <Lottie options={defaultOptions} />
-      </div>
-    </div>
+      </StyledAnimationDiv>
+    </StyledLoadingDiv>
   );
 };
